@@ -1,3 +1,6 @@
+/**
+Ejercicio uno. Completo
+**/
 #include<omp.h>
 #include<stdio.h>
 #include<stdlib.h>
@@ -13,8 +16,8 @@ void tareaB(){
 }
 
 int main(int argc,char *argv[]){
-	int idA=omp_get_thread_num();
-	int idb=omp_get_thread_num();
+	idA=omp_get_thread_num();
+	idb=omp_get_thread_num();
 	
 
 	#pragma omp parallel sections
