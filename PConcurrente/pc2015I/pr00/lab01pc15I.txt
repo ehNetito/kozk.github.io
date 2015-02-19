@@ -1,0 +1,34 @@
+$mkdir Practica1
+$ls
+$cd Practica1
+$ls
+$pwd
+$mkdir pract1A
+$mkdir pract1B
+$cd Pract1A
+$cp Datos1.xtf
+$mv Datos2.xvf /Users/invitado/Practic1/practica1B
+
+$ls ..
+$ls ../Practica1B
+$ls ../../
+$cp Datos1.rtf ../Practica1B/Datos3.rtf
+$ls .. practica1B
+$pwd
+$Practica1A
+$cd ../..
+$tar -cvf Practica1.tar Practica1
+$gzip Practica1.tar
+$ls
+$Practica1.tar.gz
+$pwd
+invitado
+$mkdir Practica2
+$cp practica1.tar.gz Practica2
+$rm practica1.tar.gz
+$cd Practica2
+$tar -xvf Practica1.tar.gz
+$rm Practica1.tar.gz
+$cd Practica1
+$ls
+$more Practica1/Datos1.rtf
