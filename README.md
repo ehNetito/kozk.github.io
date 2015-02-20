@@ -1,8 +1,8 @@
 kozk.github.io
 ==============
 
-Para probar un site
+<p>Para probar un site</p>
 https://github.com/kozk/kozk.github.io
-Sobre programación concurrente
+<p>Sobre programación concurrente</p>
 
 
