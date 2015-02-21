@@ -1,3 +1,4 @@
+//Va en mejora...
 #include<omp.h>
 #include<stdio.h>
 #include<stdlib.h>
