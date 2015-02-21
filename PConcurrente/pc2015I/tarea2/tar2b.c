@@ -14,7 +14,6 @@ omp_lock_t CD;
 
 void productor(){
   while(1){
-    omp_set_lock(&CC);
     omp_set_lock(&CP);
 
     if(pet==0){
@@ -52,13 +51,11 @@ void distribuidor(){
 
 void cliente(){
   while(1){
-    omp_set_lock(&CP);
+    omp_set_lock(&CC);
     pet++;
     pet=pet%3;
     int id=omp_get_thread_num();
-    printf("Cliente con id= %d, Petición: %d\n",id,pet);
-    omp_unset_lock(&CD);
-    omp_set_lock(&CC);
+    printf("Cliente con id= %d, Petición: %d\n",pet,id);
     omp_unset_lock(&CD);
     sleep(1);
   }
@@ -69,7 +66,7 @@ int main(int argc,char *argv[]){
 	omp_init_lock(&CC);
 	omp_init_lock(&CD);
 	
-//	omp_set_lock(&CP);
+	omp_set_lock(&CP);
 	omp_set_lock(&CD);
 	omp_set_num_threads(N);
 	#pragma omp parallel shared(pet,rsp,CP,CC,CD)
