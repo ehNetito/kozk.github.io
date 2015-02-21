@@ -2,6 +2,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+#define N 1
+
 int idA;
 int idB;
 int x=0;
@@ -32,16 +34,13 @@ int main(int argc,char *argv[]){
 	omp_init_lock(&CC);
 	
 	omp_set_lock(&CC);
-
-	int idA=omp_get_thread_num();
-	int idb=omp_get_thread_num();
-	
-	#pragma omp parallel sections shared(x)
+	omp_set_num_threads(N+1);
+	#pragma omp parallel shared(x)
 	{
-		#pragma omp section
-		  productor();
-		#pragma omp section
-		  consumidor();
+		int id=omp_get_thread_num();
+		if(id==0)
+			productor();
+		consumidor();
 	}
 	return 0;
 }
