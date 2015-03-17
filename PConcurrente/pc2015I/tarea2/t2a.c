@@ -1,5 +1,3 @@
-//Todavia falta pero va mejor
-
 #include<omp.h>
 #include<stdio.h>
 #include<stdlib.h>
