@@ -50,13 +50,13 @@ void distribuidor(){
   }
 }
 
-void cliente(){
+void consumidor(){
   while(1){
     omp_set_lock(&CP);
     pet++;
     pet=pet%3;
     int id=omp_get_thread_num();
-    printf("Cliente con id= %d, Petición: %d\n",id,pet);
+    printf("Consumidor con id = %d, Petición: %d\n",id,pet);
     omp_unset_lock(&CD);
     omp_set_lock(&CC);
     omp_unset_lock(&CD);
@@ -76,10 +76,10 @@ int main(int argc,char *argv[]){
 	{
 		int id=omp_get_thread_num();
 		if(id==0)
-			cliente();
+			consumidor();
 		else if(id==1)
 			distribuidor();
-		else if(id==2)
+		else
 			productor();
 	}
 	return 0;
