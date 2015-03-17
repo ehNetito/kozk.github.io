@@ -47,7 +47,7 @@ void distribuidor(){
   }
 }
 
-void cliente(){
+void consumidor(){
   int id=omp_get_thread_num();
   while(1){
     pet++;
@@ -73,7 +73,7 @@ int main(int argc,char *argv[]){
 	{
 		int id=omp_get_thread_num();
 		if(id==0)
-			cliente();
+			consumidor();
 		else if(id==1)
 			distribuidor();
 		else if(id==2)
