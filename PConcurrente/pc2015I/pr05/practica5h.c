@@ -1,5 +1,3 @@
-//Todavia falta pero va mejor
-
 #include<omp.h>
 #include<stdio.h>
 #include<stdlib.h>
@@ -47,7 +45,7 @@ int main(int argc,char *argv[]){
 	omp_init_lock(&CS);
 	omp_init_lock(&CC);
 	
-	omp_set_lock(&CC);
+	omp_set_lock(&CS);
 	omp_set_num_threads(N+1);
 	#pragma omp parallel shared(pet,rsp,CS,CC)
 	{
